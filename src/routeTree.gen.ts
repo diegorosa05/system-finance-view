@@ -10,154 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AccountsRouteImport } from './routes/accounts'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as DevelopersRouteImport } from './routes/developers'
-import { Route as PaymentsRouteImport } from './routes/payments'
-import { Route as RailsRouteImport } from './routes/rails'
-import { Route as SettingsRouteImport } from './routes/settings'
-import { Route as SettlementRouteImport } from './routes/settlement'
-import { Route as TransactionsRouteImport } from './routes/transactions'
-import { Route as TransfersRouteImport } from './routes/transfers'
+import { Route as ChavesApiRouteImport } from './routes/chaves-api'
+import { Route as DepositoRouteImport } from './routes/deposito'
+import { Route as DocumentacaoRouteImport } from './routes/documentacao'
+import { Route as ExtratoRouteImport } from './routes/extrato'
+import { Route as InfracoesRouteImport } from './routes/infracoes'
+import { Route as PixRouteImport } from './routes/pix'
+import { Route as SaqueRouteImport } from './routes/saque'
+import { Route as SplitsRouteImport } from './routes/splits'
+import { Route as TransacoesRouteImport } from './routes/transacoes'
+import { Route as TransferenciaRouteImport } from './routes/transferencia'
+import { Route as WebhooksRouteImport } from './routes/webhooks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AccountsRoute = AccountsRouteImport.update({
-  id: '/accounts',
-  path: '/accounts',
+const ChavesApiRoute = ChavesApiRouteImport.update({
+  id: '/chaves-api',
+  path: '/chaves-api',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AnalyticsRoute = AnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
+const DepositoRoute = DepositoRouteImport.update({
+  id: '/deposito',
+  path: '/deposito',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DevelopersRoute = DevelopersRouteImport.update({
-  id: '/developers',
-  path: '/developers',
+const DocumentacaoRoute = DocumentacaoRouteImport.update({
+  id: '/documentacao',
+  path: '/documentacao',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PaymentsRoute = PaymentsRouteImport.update({
-  id: '/payments',
-  path: '/payments',
+const ExtratoRoute = ExtratoRouteImport.update({
+  id: '/extrato',
+  path: '/extrato',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RailsRoute = RailsRouteImport.update({
-  id: '/rails',
-  path: '/rails',
+const InfracoesRoute = InfracoesRouteImport.update({
+  id: '/infracoes',
+  path: '/infracoes',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
+const PixRoute = PixRouteImport.update({
+  id: '/pix',
+  path: '/pix',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SettlementRoute = SettlementRouteImport.update({
-  id: '/settlement',
-  path: '/settlement',
+const SaqueRoute = SaqueRouteImport.update({
+  id: '/saque',
+  path: '/saque',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TransactionsRoute = TransactionsRouteImport.update({
-  id: '/transactions',
-  path: '/transactions',
+const SplitsRoute = SplitsRouteImport.update({
+  id: '/splits',
+  path: '/splits',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TransfersRoute = TransfersRouteImport.update({
-  id: '/transfers',
-  path: '/transfers',
+const TransacoesRoute = TransacoesRouteImport.update({
+  id: '/transacoes',
+  path: '/transacoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransferenciaRoute = TransferenciaRouteImport.update({
+  id: '/transferencia',
+  path: '/transferencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebhooksRoute = WebhooksRouteImport.update({
+  id: '/webhooks',
+  path: '/webhooks',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
-  '/analytics': typeof AnalyticsRoute
-  '/developers': typeof DevelopersRoute
-  '/payments': typeof PaymentsRoute
-  '/rails': typeof RailsRoute
-  '/settings': typeof SettingsRoute
-  '/settlement': typeof SettlementRoute
-  '/transactions': typeof TransactionsRoute
-  '/transfers': typeof TransfersRoute
+  '/chaves-api': typeof ChavesApiRoute
+  '/deposito': typeof DepositoRoute
+  '/documentacao': typeof DocumentacaoRoute
+  '/extrato': typeof ExtratoRoute
+  '/infracoes': typeof InfracoesRoute
+  '/pix': typeof PixRoute
+  '/saque': typeof SaqueRoute
+  '/splits': typeof SplitsRoute
+  '/transacoes': typeof TransacoesRoute
+  '/transferencia': typeof TransferenciaRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
-  '/analytics': typeof AnalyticsRoute
-  '/developers': typeof DevelopersRoute
-  '/payments': typeof PaymentsRoute
-  '/rails': typeof RailsRoute
-  '/settings': typeof SettingsRoute
-  '/settlement': typeof SettlementRoute
-  '/transactions': typeof TransactionsRoute
-  '/transfers': typeof TransfersRoute
+  '/chaves-api': typeof ChavesApiRoute
+  '/deposito': typeof DepositoRoute
+  '/documentacao': typeof DocumentacaoRoute
+  '/extrato': typeof ExtratoRoute
+  '/infracoes': typeof InfracoesRoute
+  '/pix': typeof PixRoute
+  '/saque': typeof SaqueRoute
+  '/splits': typeof SplitsRoute
+  '/transacoes': typeof TransacoesRoute
+  '/transferencia': typeof TransferenciaRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
-  '/analytics': typeof AnalyticsRoute
-  '/developers': typeof DevelopersRoute
-  '/payments': typeof PaymentsRoute
-  '/rails': typeof RailsRoute
-  '/settings': typeof SettingsRoute
-  '/settlement': typeof SettlementRoute
-  '/transactions': typeof TransactionsRoute
-  '/transfers': typeof TransfersRoute
+  '/chaves-api': typeof ChavesApiRoute
+  '/deposito': typeof DepositoRoute
+  '/documentacao': typeof DocumentacaoRoute
+  '/extrato': typeof ExtratoRoute
+  '/infracoes': typeof InfracoesRoute
+  '/pix': typeof PixRoute
+  '/saque': typeof SaqueRoute
+  '/splits': typeof SplitsRoute
+  '/transacoes': typeof TransacoesRoute
+  '/transferencia': typeof TransferenciaRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/accounts'
-    | '/analytics'
-    | '/developers'
-    | '/payments'
-    | '/rails'
-    | '/settings'
-    | '/settlement'
-    | '/transactions'
-    | '/transfers'
+    | '/chaves-api'
+    | '/deposito'
+    | '/documentacao'
+    | '/extrato'
+    | '/infracoes'
+    | '/pix'
+    | '/saque'
+    | '/splits'
+    | '/transacoes'
+    | '/transferencia'
+    | '/webhooks'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/accounts'
-    | '/analytics'
-    | '/developers'
-    | '/payments'
-    | '/rails'
-    | '/settings'
-    | '/settlement'
-    | '/transactions'
-    | '/transfers'
+    | '/chaves-api'
+    | '/deposito'
+    | '/documentacao'
+    | '/extrato'
+    | '/infracoes'
+    | '/pix'
+    | '/saque'
+    | '/splits'
+    | '/transacoes'
+    | '/transferencia'
+    | '/webhooks'
   id:
     | '__root__'
     | '/'
-    | '/accounts'
-    | '/analytics'
-    | '/developers'
-    | '/payments'
-    | '/rails'
-    | '/settings'
-    | '/settlement'
-    | '/transactions'
-    | '/transfers'
+    | '/chaves-api'
+    | '/deposito'
+    | '/documentacao'
+    | '/extrato'
+    | '/infracoes'
+    | '/pix'
+    | '/saque'
+    | '/splits'
+    | '/transacoes'
+    | '/transferencia'
+    | '/webhooks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AccountsRoute: typeof AccountsRoute
-  AnalyticsRoute: typeof AnalyticsRoute
-  DevelopersRoute: typeof DevelopersRoute
-  PaymentsRoute: typeof PaymentsRoute
-  RailsRoute: typeof RailsRoute
-  SettingsRoute: typeof SettingsRoute
-  SettlementRoute: typeof SettlementRoute
-  TransactionsRoute: typeof TransactionsRoute
-  TransfersRoute: typeof TransfersRoute
+  ChavesApiRoute: typeof ChavesApiRoute
+  DepositoRoute: typeof DepositoRoute
+  DocumentacaoRoute: typeof DocumentacaoRoute
+  ExtratoRoute: typeof ExtratoRoute
+  InfracoesRoute: typeof InfracoesRoute
+  PixRoute: typeof PixRoute
+  SaqueRoute: typeof SaqueRoute
+  SplitsRoute: typeof SplitsRoute
+  TransacoesRoute: typeof TransacoesRoute
+  TransferenciaRoute: typeof TransferenciaRoute
+  WebhooksRoute: typeof WebhooksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -169,67 +195,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/accounts': {
-      id: '/accounts'
-      path: '/accounts'
-      fullPath: '/accounts'
-      preLoaderRoute: typeof AccountsRouteImport
+    '/chaves-api': {
+      id: '/chaves-api'
+      path: '/chaves-api'
+      fullPath: '/chaves-api'
+      preLoaderRoute: typeof ChavesApiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsRouteImport
+    '/deposito': {
+      id: '/deposito'
+      path: '/deposito'
+      fullPath: '/deposito'
+      preLoaderRoute: typeof DepositoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/developers': {
-      id: '/developers'
-      path: '/developers'
-      fullPath: '/developers'
-      preLoaderRoute: typeof DevelopersRouteImport
+    '/documentacao': {
+      id: '/documentacao'
+      path: '/documentacao'
+      fullPath: '/documentacao'
+      preLoaderRoute: typeof DocumentacaoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/payments': {
-      id: '/payments'
-      path: '/payments'
-      fullPath: '/payments'
-      preLoaderRoute: typeof PaymentsRouteImport
+    '/extrato': {
+      id: '/extrato'
+      path: '/extrato'
+      fullPath: '/extrato'
+      preLoaderRoute: typeof ExtratoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/rails': {
-      id: '/rails'
-      path: '/rails'
-      fullPath: '/rails'
-      preLoaderRoute: typeof RailsRouteImport
+    '/infracoes': {
+      id: '/infracoes'
+      path: '/infracoes'
+      fullPath: '/infracoes'
+      preLoaderRoute: typeof InfracoesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
+    '/pix': {
+      id: '/pix'
+      path: '/pix'
+      fullPath: '/pix'
+      preLoaderRoute: typeof PixRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/settlement': {
-      id: '/settlement'
-      path: '/settlement'
-      fullPath: '/settlement'
-      preLoaderRoute: typeof SettlementRouteImport
+    '/saque': {
+      id: '/saque'
+      path: '/saque'
+      fullPath: '/saque'
+      preLoaderRoute: typeof SaqueRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/transactions': {
-      id: '/transactions'
-      path: '/transactions'
-      fullPath: '/transactions'
-      preLoaderRoute: typeof TransactionsRouteImport
+    '/splits': {
+      id: '/splits'
+      path: '/splits'
+      fullPath: '/splits'
+      preLoaderRoute: typeof SplitsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/transfers': {
-      id: '/transfers'
-      path: '/transfers'
-      fullPath: '/transfers'
-      preLoaderRoute: typeof TransfersRouteImport
+    '/transacoes': {
+      id: '/transacoes'
+      path: '/transacoes'
+      fullPath: '/transacoes'
+      preLoaderRoute: typeof TransacoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transferencia': {
+      id: '/transferencia'
+      path: '/transferencia'
+      fullPath: '/transferencia'
+      preLoaderRoute: typeof TransferenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/webhooks': {
+      id: '/webhooks'
+      path: '/webhooks'
+      fullPath: '/webhooks'
+      preLoaderRoute: typeof WebhooksRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -237,15 +277,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AccountsRoute: AccountsRoute,
-  AnalyticsRoute: AnalyticsRoute,
-  DevelopersRoute: DevelopersRoute,
-  PaymentsRoute: PaymentsRoute,
-  RailsRoute: RailsRoute,
-  SettingsRoute: SettingsRoute,
-  SettlementRoute: SettlementRoute,
-  TransactionsRoute: TransactionsRoute,
-  TransfersRoute: TransfersRoute,
+  ChavesApiRoute: ChavesApiRoute,
+  DepositoRoute: DepositoRoute,
+  DocumentacaoRoute: DocumentacaoRoute,
+  ExtratoRoute: ExtratoRoute,
+  InfracoesRoute: InfracoesRoute,
+  PixRoute: PixRoute,
+  SaqueRoute: SaqueRoute,
+  SplitsRoute: SplitsRoute,
+  TransacoesRoute: TransacoesRoute,
+  TransferenciaRoute: TransferenciaRoute,
+  WebhooksRoute: WebhooksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
