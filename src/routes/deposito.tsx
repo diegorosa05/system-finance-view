@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/deposito")({
-  head: () => ({ meta: [{ title: "Depósito — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Depósito — Odyssey Core" }] }),
   component: DepositoPage,
 });
 
@@ -69,7 +69,7 @@ function DepositoPage() {
               </div>
               <button
                 onClick={() => {
-                  navigator.clipboard?.writeText("00020126...cashyin-mock-pix-code");
+                  navigator.clipboard?.writeText("00020126...odyssey-mock-pix-code");
                   toast.success("Código PIX copiado");
                 }}
                 className="inline-flex items-center gap-2 rounded-md border bg-card px-4 py-2 text-sm hover:bg-muted"

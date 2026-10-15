@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/saque")({
-  head: () => ({ meta: [{ title: "Saque — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Saque — Odyssey Core" }] }),
   component: SaquePage,
 });
 

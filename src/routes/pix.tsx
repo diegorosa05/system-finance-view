@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/pix")({
-  head: () => ({ meta: [{ title: "Adquirente PIX — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Adquirente PIX — Odyssey Core" }] }),
   component: PixPage,
 });
 

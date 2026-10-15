@@ -59,7 +59,7 @@ export function AppSidebar() {
   return (
     <aside className="hidden md:flex w-64 shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground">
       <div className="flex items-center px-6 h-16 border-b">
-        <img src={logoDark} alt="Cashyin" className="h-7 w-auto" />
+        <img src={logoDark} alt="Odyssey Core" className="h-7 w-auto" />
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-5">

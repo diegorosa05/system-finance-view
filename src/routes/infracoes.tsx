@@ -5,7 +5,7 @@ import { AccountBanner } from "@/components/account-banner";
 import { EmptyState } from "@/components/empty-state";
 
 export const Route = createFileRoute("/infracoes")({
-  head: () => ({ meta: [{ title: "Infrações — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Infrações — Odyssey Core" }] }),
   component: InfracoesPage,
 });
 

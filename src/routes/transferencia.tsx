@@ -6,7 +6,7 @@ import { Stepper } from "@/components/stepper";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/transferencia")({
-  head: () => ({ meta: [{ title: "Transferência PIX — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Transferência PIX — Odyssey Core" }] }),
   component: TransferenciaPage,
 });
 

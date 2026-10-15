@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/chaves-api")({
-  head: () => ({ meta: [{ title: "Chaves de API — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Chaves de API — Odyssey Core" }] }),
   component: ChavesPage,
 });
 
@@ -21,7 +21,7 @@ function ChavesPage() {
 
   return (
     <>
-      <TopBar title="Chaves de API" subtitle="Use estas chaves para integrar a Cashyin ao seu sistema" />
+      <TopBar title="Chaves de API" subtitle="Use estas chaves para integrar a Odyssey Core ao seu sistema" />
       <div className="px-8 pb-10 space-y-6">
         <div className="rounded-lg border bg-card">
           <div className="flex items-center justify-between border-b px-5 py-4">

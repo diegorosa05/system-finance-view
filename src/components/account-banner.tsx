@@ -12,7 +12,7 @@ export function AccountBanner() {
         <div className="text-sm">
           <span className="font-bold">Conta Aprovada.</span>{" "}
           <span className="text-muted-foreground">
-            A Cashyin deseja à você uma excelente jornada conosco.
+            A Odyssey Core deseja à você uma excelente jornada conosco.
           </span>
         </div>
       </div>

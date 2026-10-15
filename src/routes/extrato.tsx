@@ -5,7 +5,7 @@ import { AccountBanner } from "@/components/account-banner";
 import { EmptyState } from "@/components/empty-state";
 
 export const Route = createFileRoute("/extrato")({
-  head: () => ({ meta: [{ title: "Extrato — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Extrato — Odyssey Core" }] }),
   component: ExtratoPage,
 });
 

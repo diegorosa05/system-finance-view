@@ -4,11 +4,11 @@ import { TopBar } from "@/components/top-bar";
 export const Route = createFileRoute("/documentacao")({
   head: () => ({
     meta: [
-      { title: "Documentação da API — Cashyin" },
+      { title: "Documentação da API — Odyssey Core" },
       {
         name: "description",
         content:
-          "Referência completa da API Cashyin: Pix Cash-in, Pix Cash-out, Saldo, Webhooks, autenticação e tratamento de erros.",
+          "Referência completa da API Odyssey Core: Pix Cash-in, Pix Cash-out, Saldo, Webhooks, autenticação e tratamento de erros.",
       },
     ],
   }),
@@ -32,7 +32,7 @@ function DocsPage() {
     <>
       <TopBar
         title="Documentação da API"
-        subtitle="Receba e envie Pix programaticamente com a API Cashyin v1"
+        subtitle="Receba e envie Pix programaticamente com a API Odyssey Core v1"
       />
       <div className="px-8 pb-16 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 max-w-6xl">
         <aside className="lg:sticky lg:top-6 h-fit space-y-1 text-sm">
@@ -46,26 +46,26 @@ function DocsPage() {
             </a>
           ))}
           <a
-            href="https://docs.cashyin.com/docs"
+            href="https://docs.odyssey.com/docs"
             target="_blank"
             rel="noreferrer"
             className="mt-4 block rounded-md border px-3 py-2 text-center text-xs font-medium hover:bg-muted"
           >
-            docs.cashyin.com ↗
+            docs.odyssey.com ↗
           </a>
         </aside>
 
         <article className="space-y-12 text-sm leading-relaxed">
           <Section id="intro" title="Introdução">
             <p className="text-muted-foreground">
-              A <strong>API Cashyin</strong> permite que sua aplicação receba e envie dinheiro via Pix
+              A <strong>API Odyssey Core</strong> permite que sua aplicação receba e envie dinheiro via Pix
               de forma programática: gere cobranças Pix (QR Code) para receber pagamentos
               (<em>cash-in</em>), envie transferências Pix a partir do seu saldo (<em>cash-out</em>),
               consulte o saldo e acompanhe toda transação em tempo real via webhooks.
             </p>
             <KV
               rows={[
-                ["Base URL (Produção)", "https://api.cashyin.com/v1"],
+                ["Base URL (Produção)", "https://api.odyssey.com/v1"],
                 ["Formato", "JSON · UTF-8"],
                 ["Autenticação", "Bearer token (API Key)"],
                 ["Moeda", "BRL (sempre em centavos)"],
@@ -91,7 +91,7 @@ function DocsPage() {
             <h3 className="font-semibold mt-6">Identificadores</h3>
             <KV
               rows={[
-                ["txid", "ID público do Pix gerado pela Cashyin (cash-in)"],
+                ["txid", "ID público do Pix gerado pela Odyssey Core (cash-in)"],
                 ["id", "UUID v4 do cash-out"],
                 ["external_ref", "Sua referência (ex.: número do pedido)"],
                 ["e2e_id", "End-to-End ID do Pix (após liquidação)"],
@@ -118,7 +118,7 @@ function DocsPage() {
               <strong>Bearer token</strong> no header <code className="kbd">Authorization</code>. A chave
               começa com <code className="kbd">ck_</code> e é única por conta.
             </p>
-            <Code>{`curl -X GET "https://api.cashyin.com/v1/balance" \\
+            <Code>{`curl -X GET "https://api.odyssey.com/v1/balance" \\
   -H "Authorization: Bearer ck_your_api_key_here"`}</Code>
             <Callout tone="warning" title="Segurança">
               Nunca exponha sua API Key em código frontend (JavaScript do navegador, apps mobile).
@@ -131,7 +131,7 @@ function DocsPage() {
             <p className="text-muted-foreground">
               Retorna o saldo atual da conta autenticada, sempre em centavos.
             </p>
-            <Code>{`curl https://api.cashyin.com/v1/balance \\
+            <Code>{`curl https://api.odyssey.com/v1/balance \\
   -H "Authorization: Bearer ck_..."`}</Code>
             <p className="font-semibold mt-3">Resposta 200</p>
             <Code>{`{
@@ -265,7 +265,7 @@ Idempotency-Key: 9f3c8a4e-1d2b-4f5a-9c8d-7e6f5a4b3c2d`}</Code>
             <p className="text-muted-foreground">
               Cadastre um endpoint na seção <strong>Webhooks</strong> do painel para receber
               notificações em tempo real. Valide a assinatura com o header{" "}
-              <code className="kbd">X-Cashyin-Signature</code> (HMAC-SHA256 do corpo cru).
+              <code className="kbd">X-Odyssey Core-Signature</code> (HMAC-SHA256 do corpo cru).
             </p>
 
             <h3 className="font-semibold mt-2">Eventos disponíveis</h3>

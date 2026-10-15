@@ -30,7 +30,7 @@ export const apiKeys = [
 export const webhooks = [
   {
     id: "wh_1",
-    url: "https://api.veilslabs.io/webhooks/cashyin",
+    url: "https://api.veilslabs.io/webhooks/odyssey",
     events: ["payment.succeeded", "payment.failed"],
     active: true,
   },

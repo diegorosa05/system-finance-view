@@ -77,18 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cashyin — Painel" },
-      { name: "description", content: "Gerencie pagamentos, transferências e PIX com a Cashyin." },
-      { property: "og:title", content: "Cashyin — Painel" },
-      { name: "twitter:title", content: "Cashyin — Painel" },
-      { property: "og:description", content: "Gerencie pagamentos, transferências e PIX com a Cashyin." },
-      { name: "twitter:description", content: "Gerencie pagamentos, transferências e PIX com a Cashyin." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2dd7e8e3-e60b-4f5f-8089-4c752ef3e87a/id-preview-60a5f764--f51e76f4-d47c-4d7d-a256-857cc72bf458.lovable.app-1780323006959.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2dd7e8e3-e60b-4f5f-8089-4c752ef3e87a/id-preview-60a5f764--f51e76f4-d47c-4d7d-a256-857cc72bf458.lovable.app-1780323006959.png" },
+      { title: "Odyssey Core — Painel" },
+      { name: "description", content: "Gerencie pagamentos, transferências e PIX com a Odyssey Core." },
+      { property: "og:title", content: "Odyssey Core — Painel" },
+      { name: "twitter:title", content: "Odyssey Core — Painel" },
+      { property: "og:description", content: "Gerencie pagamentos, transferências e PIX com a Odyssey Core." },
+      { name: "twitter:description", content: "Gerencie pagamentos, transferências e PIX com a Odyssey Core." },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }, { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+    links: [{ rel: "preconnect", href: "https://fonts.googleapis.com" }, { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..800&display=swap" }, { rel: "stylesheet", href: appCss }, { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -98,9 +96,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: `try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}` }} />
       </head>
       <body>
         {children}

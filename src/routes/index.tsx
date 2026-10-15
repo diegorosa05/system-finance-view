@@ -19,8 +19,8 @@ import { salesVolume, user } from "@/lib/mock-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Início — Cashyin" },
-      { name: "description", content: "Visão geral do seu negócio na Cashyin." },
+      { title: "Início — Odyssey Core" },
+      { name: "description", content: "Visão geral do seu negócio na Odyssey Core." },
     ],
   }),
   component: HomePage,

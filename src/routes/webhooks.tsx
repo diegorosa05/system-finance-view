@@ -6,7 +6,7 @@ import { webhooks as initial } from "@/lib/mock-data";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/webhooks")({
-  head: () => ({ meta: [{ title: "Webhooks — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Webhooks — Odyssey Core" }] }),
   component: WebhooksPage,
 });
 

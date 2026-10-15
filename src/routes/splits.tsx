@@ -6,7 +6,7 @@ import { EmptyState } from "@/components/empty-state";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/splits")({
-  head: () => ({ meta: [{ title: "Splits — Cashyin" }] }),
+  head: () => ({ meta: [{ title: "Splits — Odyssey Core" }] }),
   component: SplitsPage,
 });
 
