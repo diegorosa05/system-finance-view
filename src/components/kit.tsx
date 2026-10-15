@@ -1,21 +1,17 @@
+import logoLight from "@/assets/logo-light.png.asset.json";
+import logoDark from "@/assets/logo-dark.png.asset.json";
+import logoIcon from "@/assets/logo-icon.png.asset.json";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 export function Logo({ collapsed }: { collapsed?: boolean }) {
+  if (collapsed) return <img src={logoIcon.url} alt="Odyssey Core" className="size-8 shrink-0 object-contain" />;
   return (
-    <div className="flex items-center gap-2.5">
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-sidebar-foreground"><svg viewBox="0 0 32 32" className="size-7" aria-hidden>
-        <path d="M27 16a11 11 0 1 1-4.2-8.65" fill="none" stroke="var(--mint)" strokeWidth="2.6" strokeLinecap="round" />
-        <circle cx="25.6" cy="9.6" r="1.6" fill="var(--orbit)" />
-        <rect x="12.5" y="12.5" width="7" height="7" rx="1.5" fill="var(--sidebar)" />
-      </svg></span>
-      {!collapsed && (
-        <span className="font-display text-[17px] font-bold tracking-tight">
-          Odyssey<span className="text-muted-foreground font-medium"> Core</span>
-        </span>
-      )}
-    </div>
+    <>
+      <img src={logoLight.url} alt="Odyssey Core" className="h-7 w-auto dark:hidden" />
+      <img src={logoDark.url} alt="Odyssey Core" className="hidden h-7 w-auto dark:block" />
+    </>
   );
 }
 
