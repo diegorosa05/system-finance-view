@@ -39,9 +39,9 @@ function Page() {
         <TabsContent value="profile">
           <Panel title="Organization">
             <form className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2" onSubmit={(e) => { e.preventDefault(); save(); }}>
-              <div className="space-y-1.5"><Label>Legal name</Label><Input defaultValue="Cashyin Pagamentos LTDA" /></div>
+              <div className="space-y-1.5"><Label>Legal name</Label><Input defaultValue="Odyssey Pagamentos LTDA" /></div>
               <div className="space-y-1.5"><Label>CNPJ</Label><Input defaultValue="48.112.903/0001-27" /></div>
-              <div className="space-y-1.5"><Label>Support email</Label><Input defaultValue="ops@cashyin.com" /></div>
+              <div className="space-y-1.5"><Label>Support email</Label><Input defaultValue="ops@odyssey.com" /></div>
               <div className="space-y-1.5"><Label>Settlement account</Label><Input defaultValue="Odyssey Ledger · acc_main" /></div>
               <div className="sm:col-span-2"><Button type="submit">Save changes</Button></div>
             </form>
@@ -58,7 +58,7 @@ function Page() {
         <TabsContent value="team">
           <Panel title="Members" bodyClass="p-0" action={<Button size="sm" variant="outline" onClick={() => toast.success("Invite sent")}>Invite</Button>}>
             <ul className="divide-y divide-border">
-              {[["Diego Rosa", "diego@cashyin.com", "Admin"], ["Larissa Pires", "larissa@cashyin.com", "Operator"], ["Marcos Teixeira", "marcos@cashyin.com", "Developer"], ["Isabela Rocha", "isabela@cashyin.com", "Finance"]].map(([n, e, r]) => (
+              {[["Diego Rosa", "diego@odyssey.com", "Admin"], ["Larissa Pires", "larissa@odyssey.com", "Operator"], ["Marcos Teixeira", "marcos@odyssey.com", "Developer"], ["Isabela Rocha", "isabela@odyssey.com", "Finance"]].map(([n, e, r]) => (
                 <li key={e} className="flex items-center gap-4 px-5 py-3.5">
                   <span className="grid size-8 shrink-0 place-items-center rounded-md bg-orbit/15 text-xs font-semibold text-orbit">{n!.split(" ").map((w) => w[0]).join("")}</span>
                   <div className="min-w-0 flex-1"><div className="text-sm font-medium">{n}</div><div className="truncate text-xs text-muted-foreground">{e}</div></div>

@@ -9,7 +9,7 @@ export const dict: Record<string, [string, string]> = {
   "Settings": ["Configurações", "设置"], "All systems operational": ["Todos os sistemas operacionais", "所有系统运行正常"],
   "Every route accounted for.": ["Todas as rotas sob controle.", "每条路由尽在掌握。"],
   "Search transactions, E2E IDs, accounts…": ["Buscar transações, IDs E2E, contas…", "搜索交易、E2E ID、账户…"],
-  "live": ["produção", "生产"], "sandbox": ["sandbox", "沙盒"], "Cashyin · Admin": ["Cashyin · Admin", "Cashyin · 管理员"],
+  "live": ["produção", "生产"], "sandbox": ["sandbox", "沙盒"], "Odyssey · Admin": ["Odyssey · Admin", "Odyssey · 管理员"],
   "Profile": ["Perfil", "个人资料"], "API keys": ["Chaves de API", "API 密钥"], "Sign out": ["Sair", "退出登录"],
   "Language": ["Idioma", "语言"], "Light mode": ["Modo claro", "浅色模式"], "Dark mode": ["Modo escuro", "深色模式"],
   "Collapse sidebar": ["Recolher menu", "收起侧栏"], "Expand sidebar": ["Expandir menu", "展开侧栏"], "Open menu": ["Abrir menu", "打开菜单"],

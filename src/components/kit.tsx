@@ -8,7 +8,7 @@ export function Logo({ collapsed }: { collapsed?: boolean }) {
       <svg viewBox="0 0 32 32" className="size-7 shrink-0" aria-hidden>
         <path d="M27 16a11 11 0 1 1-4.2-8.65" fill="none" stroke="var(--mint)" strokeWidth="2.6" strokeLinecap="round" />
         <circle cx="25.6" cy="9.6" r="1.6" fill="var(--orbit)" />
-        <rect x="12.5" y="12.5" width="7" height="7" rx="1.5" fill="var(--cloud)" />
+        <rect x="12.5" y="12.5" width="7" height="7" rx="1.5" fill="var(--foreground)" />
       </svg>
       {!collapsed && (
         <span className="font-display text-[15px] font-semibold tracking-tight">
