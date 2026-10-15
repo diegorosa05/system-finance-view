@@ -1,122 +1,198 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { ArrowRight, Plus } from "lucide-react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { PageHeader, Panel, Stat, StatusBadge, axis, chartTooltip } from "@/components/kit";
-import { TxTable } from "@/components/tx-table";
-import { cn } from "@/lib/utils";
-import { compact, railsInfra, transactions, volumeSeries } from "@/lib/mock";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Area,
+  AreaChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
+import { Eye, QrCode, CreditCard, Barcode } from "lucide-react";
+import { TopBar } from "@/components/top-bar";
+import { AccountBanner } from "@/components/account-banner";
+import { StatCard } from "@/components/stat-card";
+import { salesVolume, user } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Overview — Odyssey Core" },
-      { name: "description", content: "Operational overview of volume, success rate and settlement across every payment rail." },
-      { property: "og:title", content: "Overview — Odyssey Core" },
-      { property: "og:description", content: "Every route accounted for: volume, performance and recent transactions." },
+      { title: "Início — Cashyin" },
+      { name: "description", content: "Visão geral do seu negócio na Cashyin." },
     ],
   }),
-  component: Overview,
+  component: HomePage,
 });
 
-const ranges = { "7D": 7, "14D": 14, "30D": 30 } as const;
+const statusData = [
+  { name: "Pagas", value: 0, color: "var(--color-info)" },
+  { name: "Pendentes", value: 1, color: "var(--color-warning)" },
+];
 
-function Overview() {
-  const [range, setRange] = useState<keyof typeof ranges>("30D");
-  const series = volumeSeries.slice(-ranges[range]);
-  const spark = volumeSeries.map((d) => d.pix);
+function HomePage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Thursday, Oct 15 · Live"
-        title="Good afternoon, Diego"
-        desc="Build, route and reconcile financial flows through one programmable core."
-        actions={<>
-          <Button variant="outline" size="sm" asChild><Link to="/developers">Explore the API</Link></Button>
-          <Button size="sm" onClick={() => toast.success("Pix charge created", { description: "QR code ready to share." })}><Plus className="size-4" />New charge</Button>
-        </>}
-      />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <Stat label="Processed volume · 30d" value="R$ 86.3M" delta={14.2} hint="vs. prev. period" spark={spark} />
-        <Stat label="Transactions" value="412,908" delta={9.6} hint="13.7k / day" spark={volumeSeries.map((d) => d.other)} />
-        <Stat label="Success rate" value="99.41%" delta={0.3} hint="target 99.0%" />
-        <Stat label="Pending settlement" value="R$ 2.48M" delta={-3.1} hint="next window 18:00" spark={volumeSeries.map((d) => d.stable).reverse()} />
-      </div>
+      <TopBar title="Início" subtitle="Visão geral do seu negócio" showDateTabs />
+      <AccountBanner />
 
-      <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
-        <Panel
-          className="xl:col-span-2"
-          title="Transaction volume"
-          action={<div className="flex rounded-lg border border-border p-0.5">{(Object.keys(ranges) as (keyof typeof ranges)[]).map((k) => (
-            <button key={k} onClick={() => setRange(k)} className={cn("rounded-md px-2 py-0.5 text-xs", range === k ? "bg-accent text-foreground" : "text-muted-foreground")}>{k}</button>
-          ))}</div>}
-        >
-          <div className="mb-4 flex flex-wrap gap-5 text-xs">
-            {[["Pix", "var(--mint)"], ["Stablecoins", "var(--orbit)"], ["Other rails", "var(--chart-5)"]].map(([l, c]) => (
-              <span key={l} className="flex items-center gap-2 text-muted-foreground"><span className="size-2 rounded-sm" style={{ background: c }} />{l}</span>
-            ))}
+      <div className="px-8 pb-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 space-y-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="text-xl font-bold">Bom dia, {user.fullName}</h2>
+              <p className="text-sm text-muted-foreground">
+                Confira tudo que está acontecendo na sua operação
+              </p>
+            </div>
           </div>
-          <div className="h-[280px]">
-            <ResponsiveContainer>
-              <AreaChart data={series} margin={{ left: -10, right: 4 }}>
-                <defs>
-                  {[["g1", "var(--mint)"], ["g2", "var(--orbit)"]].map(([id, c]) => (
-                    <linearGradient key={id} id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={c} stopOpacity={0.28} /><stop offset="100%" stopColor={c} stopOpacity={0} /></linearGradient>
-                  ))}
-                </defs>
-                <CartesianGrid stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="day" {...axis} minTickGap={24} />
-                <YAxis {...axis} tickFormatter={(v) => `${(v / 1e6).toFixed(1)}M`} />
-                <Tooltip {...chartTooltip} formatter={(v: number) => compact(v)} />
-                <Area type="monotone" dataKey="pix" name="Pix" stroke="var(--mint)" strokeWidth={2} fill="url(#g1)" />
-                <Area type="monotone" dataKey="stable" name="Stablecoins" stroke="var(--orbit)" strokeWidth={2} fill="url(#g2)" />
-                <Area type="monotone" dataKey="other" name="Other" stroke="var(--chart-5)" strokeWidth={1.5} fill="transparent" />
-              </AreaChart>
-            </ResponsiveContainer>
+
+          <div className="rounded-lg border bg-card p-5">
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
+                Volume de Vendas
+              </div>
+            </div>
+            <div className="h-72">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={salesVolume}>
+                  <defs>
+                    <linearGradient id="vol" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="var(--color-primary)" stopOpacity={0.3} />
+                      <stop offset="100%" stopColor="var(--color-primary)" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <XAxis
+                    dataKey="hour"
+                    stroke="var(--color-muted-foreground)"
+                    fontSize={11}
+                    tickLine={false}
+                    axisLine={false}
+                    interval={2}
+                  />
+                  <YAxis hide />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "var(--color-card)",
+                      border: "1px solid var(--color-border)",
+                      borderRadius: "8px",
+                      fontSize: "12px",
+                    }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="value"
+                    stroke="var(--color-primary)"
+                    strokeWidth={2}
+                    fill="url(#vol)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
           </div>
-        </Panel>
 
-        <Panel title="Route health" action={<Link to="/rails" className="flex items-center gap-1 text-xs text-orbit hover:underline">All rails <ArrowRight className="size-3" /></Link>}>
-          <RouteDiagram />
-          <ul className="mt-4 space-y-2.5">
-            {railsInfra.slice(0, 4).map((r) => (
-              <li key={r.code} className="flex items-center justify-between text-sm">
-                <span>{r.name}</span>
-                <span className="flex items-center gap-3"><span className="text-xs tabular-nums text-muted-foreground">{r.uptime}%</span><StatusBadge status={r.status} /></span>
-              </li>
-            ))}
-          </ul>
-        </Panel>
-      </div>
+          <div className="rounded-lg border bg-card p-5">
+            <div className="text-[11px] font-semibold tracking-widest text-muted-foreground uppercase mb-4">
+              Status das Transações
+            </div>
+            <div className="flex items-center gap-8">
+              <div className="h-32 w-32 relative">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={statusData}
+                      innerRadius={40}
+                      outerRadius={60}
+                      paddingAngle={2}
+                      dataKey="value"
+                    >
+                      {statusData.map((s, i) => (
+                        <Cell key={i} fill={s.color} />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
+                <div className="absolute inset-0 flex items-center justify-center text-sm font-bold">
+                  0%
+                </div>
+              </div>
+              <div className="flex-1 space-y-3">
+                <Row color="bg-info" label="Pagas" value="R$ 0,00" pct="0%" />
+                <Row color="bg-warning" label="Pendentes" value="R$ 0,00" pct="100%" />
+                <div className="border-t pt-3 flex items-center justify-between text-sm font-semibold">
+                  <span>Total</span>
+                  <span>R$ 0,00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div className="flex items-center justify-between">
-        <h2 className="text-base font-semibold">Recent transactions</h2>
-        <Link to="/transactions" className="flex items-center gap-1 text-xs text-orbit hover:underline">View all <ArrowRight className="size-3" /></Link>
+        <div className="space-y-4">
+          <div className="rounded-lg border bg-card p-5 flex items-start justify-between">
+            <div>
+              <div className="text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
+                Saldo Disponível
+              </div>
+              <div className="mt-1 text-2xl font-bold">R$ 0,00</div>
+            </div>
+            <button className="p-1.5 rounded-md hover:bg-muted text-muted-foreground">
+              <Eye className="h-4 w-4" />
+            </button>
+          </div>
+
+          <StatCard label="Transações Pagas" value="R$ 0,00" highlighted />
+          <StatCard label="Ticket Médio" value="R$ 0,00" />
+          <StatCard label="Número de Transações Pagas" value="0" />
+          <StatCard
+            label="Valor em Estornos"
+            value={
+              <span>
+                R$ 0 <span className="text-sm font-normal text-muted-foreground">0%</span>
+              </span>
+            }
+          />
+
+          <div className="rounded-lg border bg-card p-5">
+            <div className="text-[11px] font-semibold tracking-widest text-muted-foreground uppercase mb-3">
+              Métodos de Pagamento
+            </div>
+            <div className="space-y-3 text-sm">
+              <MethodRow icon={<QrCode className="h-4 w-4" />} label="PIX" pct="0.0%" />
+              <MethodRow icon={<CreditCard className="h-4 w-4" />} label="Cartão" pct="0.0%" />
+              <MethodRow icon={<Barcode className="h-4 w-4" />} label="Boleto" pct="0.0%" />
+            </div>
+          </div>
+        </div>
       </div>
-      <TxTable data={transactions.slice(0, 6)} pageSize={6} compact />
     </>
   );
 }
 
-function RouteDiagram() {
-  const nodes = [
-    { x: 40, y: 30, l: "PIX" }, { x: 260, y: 30, l: "USDC" }, { x: 40, y: 130, l: "TED" }, { x: 260, y: 130, l: "USDT" },
-  ];
+function Row({ color, label, value, pct }: { color: string; label: string; value: string; pct: string }) {
   return (
-    <svg viewBox="0 0 300 160" className="h-auto w-full">
-      <circle cx="150" cy="80" r="46" fill="none" stroke="var(--border)" />
-      <path d="M196 80a46 46 0 1 1-13.5-32.5" fill="none" stroke="var(--mint)" strokeWidth="1.5" />
-      {nodes.map((n, i) => (
-        <g key={n.l}>
-          <path d={`M${n.x} ${n.y} Q150 80 150 80`} stroke={i === 3 ? "var(--amber)" : i % 2 ? "var(--orbit)" : "var(--mint)"} strokeWidth="1" fill="none" className="route-flow" />
-          <rect x={n.x - 20} y={n.y - 11} width="40" height="22" rx="11" fill="var(--surface-2)" stroke="var(--border)" />
-          <text x={n.x} y={n.y + 4} textAnchor="middle" fontSize="9" fontFamily="IBM Plex Mono" fill="var(--muted-foreground)">{n.l}</text>
-        </g>
-      ))}
-      <rect x="138" y="68" width="24" height="24" rx="5" fill="var(--cloud)" />
-      <text x="150" y="152" textAnchor="middle" fontSize="8.5" fill="var(--muted-foreground)" letterSpacing="1.5">ODYSSEY RAILS</text>
-    </svg>
+    <div className="flex items-center justify-between text-sm">
+      <div className="flex items-center gap-2">
+        <span className={`h-2.5 w-2.5 rounded-sm ${color}`} />
+        <span>{label}</span>
+      </div>
+      <div className="flex items-center gap-3">
+        <span className="font-medium">{value}</span>
+        <span className="text-muted-foreground w-10 text-right">{pct}</span>
+      </div>
+    </div>
+  );
+}
+
+function MethodRow({ icon, label, pct }: { icon: React.ReactNode; label: string; pct: string }) {
+  return (
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2 text-muted-foreground">
+        {icon}
+        <span className="text-foreground">{label}</span>
+      </div>
+      <span className="font-medium">{pct}</span>
+    </div>
   );
 }
