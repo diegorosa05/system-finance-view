@@ -2,8 +2,9 @@ import { useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   LayoutGrid, ArrowLeftRight, QrCode, Wallet, Send, Network, Scale, LineChart, Code2, Settings,
-  PanelLeftClose, PanelLeftOpen, Search, Bell, Menu, ChevronDown, LogOut, User,
+  PanelLeftClose, PanelLeftOpen, Search, Bell, Menu, ChevronDown, LogOut, User, Sun, Moon, Languages,
 } from "lucide-react";
+import { usePrefs, type Lang } from "@/lib/prefs";
 import { cn } from "@/lib/utils";
 import { Logo } from "./kit";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
@@ -82,6 +83,33 @@ function StatusFooter({ collapsed }: { collapsed: boolean }) {
   );
 }
 
+const langs: { id: Lang; label: string; short: string }[] = [
+  { id: "pt", label: "Português", short: "PT" }, { id: "en", label: "English", short: "EN" }, { id: "zh", label: "中文", short: "中文" },
+];
+
+function PrefControls() {
+  const { lang, setLang, theme, setTheme } = usePrefs();
+  return (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger className="flex h-9 items-center gap-1.5 rounded-lg border border-border px-2.5 text-xs font-medium hover:bg-accent" aria-label="Language">
+          <Languages className="size-4" /><span data-no-translate>{langs.find((l) => l.id === lang)?.short}</span>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-40" data-no-translate>
+          {langs.map((l) => (
+            <DropdownMenuItem key={l.id} onClick={() => setLang(l.id)} className={cn(lang === l.id && "font-semibold")}>
+              {l.label}{lang === l.id && <span className="ml-auto size-1.5 rounded-full bg-mint" />}
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="rounded-lg p-2 text-muted-foreground hover:bg-accent hover:text-foreground" aria-label="Toggle theme" title={theme === "dark" ? "Light mode" : "Dark mode"}>
+        {theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
+      </button>
+    </>
+  );
+}
+
 export function AppShell({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobile, setMobile] = useState(false);
@@ -137,6 +165,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                   </button>
                 ))}
               </div>
+              <PrefControls />
               <button onClick={() => toast("3 new alerts", { description: "USDT on Tron is running with elevated latency." })} className="relative rounded-lg p-2 text-muted-foreground hover:bg-accent hover:text-foreground" aria-label="Notifications">
                 <Bell className="size-[18px]" />
                 <span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-amber" />
