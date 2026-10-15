@@ -95,7 +95,7 @@ const statusMap: Record<string, string> = {
 
 export function StatusBadge({ status }: { status: string }) {
   return (
-    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium capitalize ring-1 ring-inset", statusMap[status] ?? statusMap.pending)}>
+    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium capitalize ring-1 ring-inset", statusMap[status] ?? statusMap["pending"])}>
       <span className={cn("size-1.5 rounded-full bg-current", status === "processing" && "pulse-dot")} />
       {status}
     </span>

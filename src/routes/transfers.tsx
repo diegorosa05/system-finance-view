@@ -23,7 +23,7 @@ export const Route = createFileRoute("/transfers")({
 });
 
 function Page() {
-  const [to, setTo] = useState(recipients[0].name);
+  const [to, setTo] = useState(recipients[0]!.name);
   const [sending, setSending] = useState(false);
   const out = transactions.filter((t) => t.direction === "out");
   return (

@@ -60,7 +60,7 @@ function Page() {
             <ul className="divide-y divide-border">
               {[["Diego Rosa", "diego@cashyin.com", "Admin"], ["Larissa Pires", "larissa@cashyin.com", "Operator"], ["Marcos Teixeira", "marcos@cashyin.com", "Developer"], ["Isabela Rocha", "isabela@cashyin.com", "Finance"]].map(([n, e, r]) => (
                 <li key={e} className="flex items-center gap-4 px-5 py-3.5">
-                  <span className="grid size-8 shrink-0 place-items-center rounded-md bg-orbit/15 text-xs font-semibold text-orbit">{n.split(" ").map((w) => w[0]).join("")}</span>
+                  <span className="grid size-8 shrink-0 place-items-center rounded-md bg-orbit/15 text-xs font-semibold text-orbit">{n!.split(" ").map((w) => w[0]).join("")}</span>
                   <div className="min-w-0 flex-1"><div className="text-sm font-medium">{n}</div><div className="truncate text-xs text-muted-foreground">{e}</div></div>
                   <span className="text-xs text-muted-foreground">{r}</span>
                   <StatusBadge status="active" />

@@ -22,7 +22,7 @@ export const Route = createFileRoute("/accounts")({
 });
 
 function Page() {
-  const [sel, setSel] = useState(accounts[0].id);
+  const [sel, setSel] = useState(accounts[0]!.id);
   const acc = accounts.find((a) => a.id === sel)!;
   const total = accounts.filter((a) => a.currency === "BRL").reduce((s, a) => s + a.balance, 0);
   const bal = volumeSeries.map((d, i) => ({ day: d.day, v: acc.balance * (0.86 + i * 0.005) + (d.pix % 50000) }));

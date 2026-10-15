@@ -31,8 +31,8 @@ function Page() {
       </div>
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
         <Panel title="Today's window">
-          <div className="font-display text-2xl font-semibold tabular-nums">{brl(settlements[0].net)}</div>
-          <div className="mt-1 text-xs text-muted-foreground">Net after fees · {settlements[0].txCount.toLocaleString()} transactions</div>
+          <div className="font-display text-2xl font-semibold tabular-nums">{brl(settlements[0]!.net)}</div>
+          <div className="mt-1 text-xs text-muted-foreground">Net after fees · {settlements[0]!.txCount.toLocaleString()} transactions</div>
           <Progress value={72} className="mt-5 h-1.5 bg-muted [&>div]:bg-mint" />
           <div className="mt-2 flex justify-between text-xs text-muted-foreground"><span>72% matched</span><span>closes 18:00 BRT</span></div>
           <ol className="mt-6 space-y-3 text-sm">

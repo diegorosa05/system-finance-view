@@ -7,7 +7,7 @@ function rng(seed: number) {
   };
 }
 const r = rng(42);
-const pick = <T,>(a: readonly T[]) => a[Math.floor(r() * a.length)];
+const pick = <T,>(a: readonly T[]) => a[Math.floor(r() * a.length)]!;
 
 export type Status = "settled" | "pending" | "processing" | "failed" | "refunded";
 export type Rail = "Pix" | "Pix Automático" | "USDC" | "USDT" | "TED" | "Boleto";

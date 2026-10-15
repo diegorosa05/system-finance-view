@@ -90,7 +90,7 @@ function Page() {
                 <tbody>
                   {apiLogs.map((l) => (
                     <tr key={l.id} className="border-t border-border first:border-0 hover:bg-accent/40">
-                      <td className="px-5 py-2.5"><span className={cn("rounded px-1.5 py-0.5", l.status < 300 ? "bg-mint/10 text-mint" : l.status < 500 ? "bg-amber/10 text-amber" : "bg-destructive/10 text-destructive")}>{l.status}</span></td>
+                      <td className="px-5 py-2.5"><span className={cn("rounded px-1.5 py-0.5", l.status! < 300 ? "bg-mint/10 text-mint" : l.status! < 500 ? "bg-amber/10 text-amber" : "bg-destructive/10 text-destructive")}>{l.status}</span></td>
                       <td className="px-3 py-2.5 text-orbit">{l.method}</td>
                       <td className="px-3 py-2.5">{l.path}</td>
                       <td className="px-3 py-2.5 text-muted-foreground">{l.id}</td>
