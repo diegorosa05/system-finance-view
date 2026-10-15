@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountsRouteImport } from './routes/accounts'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as DevelopersRouteImport } from './routes/developers'
+import { Route as PaymentsRouteImport } from './routes/payments'
+import { Route as RailsRouteImport } from './routes/rails'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SettlementRouteImport } from './routes/settlement'
+import { Route as TransactionsRouteImport } from './routes/transactions'
+import { Route as TransfersRouteImport } from './routes/transfers'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountsRoute = AccountsRouteImport.update({
+  id: '/accounts',
+  path: '/accounts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevelopersRoute = DevelopersRouteImport.update({
+  id: '/developers',
+  path: '/developers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RailsRoute = RailsRouteImport.update({
+  id: '/rails',
+  path: '/rails',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettlementRoute = SettlementRouteImport.update({
+  id: '/settlement',
+  path: '/settlement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransactionsRoute = TransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransfersRoute = TransfersRouteImport.update({
+  id: '/transfers',
+  path: '/transfers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/analytics': typeof AnalyticsRoute
+  '/developers': typeof DevelopersRoute
+  '/payments': typeof PaymentsRoute
+  '/rails': typeof RailsRoute
+  '/settings': typeof SettingsRoute
+  '/settlement': typeof SettlementRoute
+  '/transactions': typeof TransactionsRoute
+  '/transfers': typeof TransfersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/analytics': typeof AnalyticsRoute
+  '/developers': typeof DevelopersRoute
+  '/payments': typeof PaymentsRoute
+  '/rails': typeof RailsRoute
+  '/settings': typeof SettingsRoute
+  '/settlement': typeof SettlementRoute
+  '/transactions': typeof TransactionsRoute
+  '/transfers': typeof TransfersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/analytics': typeof AnalyticsRoute
+  '/developers': typeof DevelopersRoute
+  '/payments': typeof PaymentsRoute
+  '/rails': typeof RailsRoute
+  '/settings': typeof SettingsRoute
+  '/settlement': typeof SettlementRoute
+  '/transactions': typeof TransactionsRoute
+  '/transfers': typeof TransfersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accounts'
+    | '/analytics'
+    | '/developers'
+    | '/payments'
+    | '/rails'
+    | '/settings'
+    | '/settlement'
+    | '/transactions'
+    | '/transfers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accounts'
+    | '/analytics'
+    | '/developers'
+    | '/payments'
+    | '/rails'
+    | '/settings'
+    | '/settlement'
+    | '/transactions'
+    | '/transfers'
+  id:
+    | '__root__'
+    | '/'
+    | '/accounts'
+    | '/analytics'
+    | '/developers'
+    | '/payments'
+    | '/rails'
+    | '/settings'
+    | '/settlement'
+    | '/transactions'
+    | '/transfers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountsRoute: typeof AccountsRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  DevelopersRoute: typeof DevelopersRoute
+  PaymentsRoute: typeof PaymentsRoute
+  RailsRoute: typeof RailsRoute
+  SettingsRoute: typeof SettingsRoute
+  SettlementRoute: typeof SettlementRoute
+  TransactionsRoute: typeof TransactionsRoute
+  TransfersRoute: typeof TransfersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accounts': {
+      id: '/accounts'
+      path: '/accounts'
+      fullPath: '/accounts'
+      preLoaderRoute: typeof AccountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/developers': {
+      id: '/developers'
+      path: '/developers'
+      fullPath: '/developers'
+      preLoaderRoute: typeof DevelopersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rails': {
+      id: '/rails'
+      path: '/rails'
+      fullPath: '/rails'
+      preLoaderRoute: typeof RailsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settlement': {
+      id: '/settlement'
+      path: '/settlement'
+      fullPath: '/settlement'
+      preLoaderRoute: typeof SettlementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transactions': {
+      id: '/transactions'
+      path: '/transactions'
+      fullPath: '/transactions'
+      preLoaderRoute: typeof TransactionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transfers': {
+      id: '/transfers'
+      path: '/transfers'
+      fullPath: '/transfers'
+      preLoaderRoute: typeof TransfersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountsRoute: AccountsRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  DevelopersRoute: DevelopersRoute,
+  PaymentsRoute: PaymentsRoute,
+  RailsRoute: RailsRoute,
+  SettingsRoute: SettingsRoute,
+  SettlementRoute: SettlementRoute,
+  TransactionsRoute: TransactionsRoute,
+  TransfersRoute: TransfersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
