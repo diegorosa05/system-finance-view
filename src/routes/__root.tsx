@@ -14,6 +14,7 @@ import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "@/components/app-shell";
+import { PrefsProvider, prefsBootScript, usePrefs } from "@/lib/prefs";
 
 function NotFoundComponent() {
   return (
@@ -85,8 +86,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: prefsBootScript }} />
         <HeadContent />
       </head>
       <body>
@@ -101,10 +103,19 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <AppShell>
-        <Outlet />
-      </AppShell>
-      <Toaster theme="dark" position="bottom-right" toastOptions={{ style: { background: "var(--popover)", border: "1px solid var(--border)", color: "var(--foreground)" } }} />
+      <PrefsProvider>
+        <AppShell>
+          <Outlet />
+        </AppShell>
+        <ThemedToaster />
+      </PrefsProvider>
     </QueryClientProvider>
+  );
+}
+
+function ThemedToaster() {
+  const { theme } = usePrefs();
+  return (
+      <Toaster theme={theme} position="bottom-right" toastOptions={{ style: { background: "var(--popover)", border: "1px solid var(--border)", color: "var(--foreground)" } }} />
   );
 }
