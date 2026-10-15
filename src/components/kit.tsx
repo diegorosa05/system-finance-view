@@ -70,7 +70,7 @@ function Spark({ data, up }: { data: number[]; up: boolean }) {
   const max = Math.max(...data), min = Math.min(...data);
   const pts = data.map((v, i) => `${(i / (data.length - 1)) * 100},${30 - ((v - min) / (max - min || 1)) * 26}`).join(" ");
   return (
-    <svg viewBox="0 0 100 32" preserveAspectRatio="none" className="absolute right-5 top-5 h-7 w-20 opacity-70">
+    <svg viewBox="0 0 100 32" preserveAspectRatio="none" className="absolute right-5 top-[52px] h-8 w-20 opacity-70">
       <polyline points={pts} fill="none" stroke={up ? "var(--mint)" : "var(--amber)"} strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
     </svg>
   );
