@@ -1,6 +1,6 @@
 export const user = {
-  name: "Jose Nilton do...",
-  fullName: "Jose Nilton",
+  name: "Diego Rosa",
+  fullName: "Diego Rosa",
   email: "conta1@veilslabs.io",
   account: "PAGAMENTOSS G...",
 };
