@@ -1,0 +1,155 @@
+// English source text -> [Portuguese, Chinese]. The UI is authored in English;
+// the translator swaps rendered text using this table.
+export const dict: Record<string, [string, string]> = {
+  // Navigation & shell
+  "Operate": ["Operação", "运营"], "Infrastructure": ["Infraestrutura", "基础设施"], "Build": ["Desenvolver", "构建"],
+  "Overview": ["Visão geral", "概览"], "Transactions": ["Transações", "交易"], "Payments": ["Pagamentos", "支付"],
+  "Accounts": ["Contas", "账户"], "Transfers": ["Transferências", "转账"], "Payment Rails": ["Trilhos de pagamento", "支付通道"],
+  "Settlement": ["Liquidação", "结算"], "Analytics": ["Análises", "分析"], "API & Developers": ["API e Desenvolvedores", "API 与开发者"],
+  "Settings": ["Configurações", "设置"], "All systems operational": ["Todos os sistemas operacionais", "所有系统运行正常"],
+  "Every route accounted for.": ["Todas as rotas sob controle.", "每条路由尽在掌握。"],
+  "Search transactions, E2E IDs, accounts…": ["Buscar transações, IDs E2E, contas…", "搜索交易、E2E ID、账户…"],
+  "live": ["produção", "生产"], "sandbox": ["sandbox", "沙盒"], "Cashyin · Admin": ["Cashyin · Admin", "Cashyin · 管理员"],
+  "Profile": ["Perfil", "个人资料"], "API keys": ["Chaves de API", "API 密钥"], "Sign out": ["Sair", "退出登录"],
+  "Language": ["Idioma", "语言"], "Light mode": ["Modo claro", "浅色模式"], "Dark mode": ["Modo escuro", "深色模式"],
+  "Collapse sidebar": ["Recolher menu", "收起侧栏"], "Expand sidebar": ["Expandir menu", "展开侧栏"], "Open menu": ["Abrir menu", "打开菜单"],
+  "Notifications": ["Notificações", "通知"], "Navigation": ["Navegação", "导航"], "Toggle theme": ["Alternar tema", "切换主题"],
+  "Route not found": ["Página não encontrada", "页面未找到"], "Back to overview": ["Voltar à visão geral", "返回概览"],
+  "This path doesn't lead anywhere in the core.": ["Este caminho não leva a lugar nenhum.", "此路径不存在。"],
+
+  // Overview
+  "Thursday, Oct 15 · Live": ["Quinta-feira, 15 out · Ao vivo", "10月15日 星期四 · 实时"],
+  "Good afternoon, Diego": ["Boa tarde, Diego", "下午好，Diego"],
+  "Your sales, balance and payment performance at a glance.": ["Suas vendas, saldo e desempenho de pagamentos em um só lugar.", "一览您的销售、余额和支付表现。"],
+  "Available balance": ["Saldo disponível", "可用余额"], "Paid transactions": ["Transações pagas", "已支付交易"],
+  "Average ticket": ["Ticket médio", "平均客单价"], "Number of paid transactions": ["Nº de transações pagas", "已支付交易数"],
+  "Refunds": ["Valor em estornos", "退款金额"], "Payment methods": ["Métodos de pagamento", "支付方式"],
+  "Transaction status": ["Status das transações", "交易状态"], "Sales volume": ["Volume de vendas", "销售额"],
+  "ready to withdraw": ["pronto para saque", "可提现"], "last 30 days": ["últimos 30 dias", "近 30 天"],
+  "per paid transaction": ["por transação paga", "每笔已支付交易"], "of paid volume": ["do volume pago", "占已支付金额"],
+  "Withdraw": ["Sacar", "提现"], "Withdrawal requested": ["Saque solicitado", "已申请提现"],
+  "Funds arrive in your bank account via Pix in seconds.": ["O valor cai na sua conta via Pix em segundos.", "资金将通过 Pix 秒级到账。"],
+  "Card": ["Cartão", "银行卡"], "Paid": ["Pago", "已支付"], "Sales": ["Vendas", "销售"], "share": ["participação", "占比"],
+  "Total": ["Total", "合计"], "transactions in period": ["transações no período", "期间交易数"],
+  "Explore the API": ["Explorar a API", "浏览 API"], "New charge": ["Nova cobrança", "新建收款"],
+  "Pix charge created": ["Cobrança Pix criada", "Pix 收款已创建"], "QR code ready to share.": ["QR code pronto para compartilhar.", "二维码已可分享。"],
+  "Recent transactions": ["Transações recentes", "最近交易"], "View all": ["Ver todas", "查看全部"],
+
+  // Common / table
+  "Transaction": ["Transação", "交易"], "Counterparty": ["Contraparte", "交易对手"], "Rail": ["Trilho", "通道"], "Status": ["Status", "状态"],
+  "Date": ["Data", "日期"], "Amount": ["Valor", "金额"], "Export": ["Exportar", "导出"], "all": ["todas", "全部"],
+  "settled": ["liquidada", "已结算"], "pending": ["pendente", "待处理"], "processing": ["processando", "处理中"], "failed": ["falhou", "失败"],
+  "refunded": ["estornada", "已退款"], "reconciled": ["conciliada", "已对账"], "operational": ["operacional", "正常"], "active": ["ativo", "活跃"],
+  "completed": ["concluída", "已完成"], "scheduled": ["agendada", "已排期"], "degraded": ["degradado", "降级"], "exception": ["exceção", "异常"],
+  "maintenance": ["manutenção", "维护中"], "failing": ["com falha", "故障"],
+  "No transactions match": ["Nenhuma transação encontrada", "没有匹配的交易"],
+  "Try a different search term or clear the status filter.": ["Tente outro termo ou limpe o filtro de status.", "请尝试其他关键词或清除状态筛选。"],
+  "Transaction detail": ["Detalhe da transação", "交易详情"], "Lifecycle": ["Ciclo de vida", "生命周期"], "Initiated": ["Iniciada", "已发起"],
+  "Routed": ["Roteada", "已路由"], "Confirmed": ["Confirmada", "已确认"], "Settled": ["Liquidada", "已结算"],
+  "API · POST /v1/payments": ["API · POST /v1/payments", "API · POST /v1/payments"],
+  "Counterparty acknowledged": ["Contraparte confirmou", "交易对手已确认"], "Ledger entry posted": ["Lançamento registrado", "账本已记账"],
+  "Merchant": ["Lojista", "商户"], "Direction": ["Direção", "方向"], "Inbound": ["Entrada", "收入"], "Outbound": ["Saída", "支出"],
+  "Fee": ["Taxa", "手续费"], "Net": ["Líquido", "净额"], "Created": ["Criada", "创建时间"], "Copy ID": ["Copiar ID", "复制 ID"], "Refund": ["Estornar", "退款"],
+  "ID copied": ["ID copiado", "ID 已复制"], "Refund requested": ["Estorno solicitado", "已申请退款"], "Export queued": ["Exportação na fila", "导出已排队"],
+  "Search transactions…": ["Buscar transações…", "搜索交易…"], "Search payments…": ["Buscar pagamentos…", "搜索支付…"],
+  "Search transfers…": ["Buscar transferências…", "搜索转账…"], "Search movements…": ["Buscar movimentações…", "搜索流水…"],
+  "Changes saved": ["Alterações salvas", "已保存更改"], "Pending": ["Pendente", "待处理"], "Failed": ["Falhas", "失败"],
+  "Command palette": ["Paleta de comandos", "命令面板"], "⌘K search is simulated in this mockup.": ["A busca ⌘K é simulada neste protótipo.", "⌘K 搜索在此原型中为模拟。"],
+  "3 new alerts": ["3 novos alertas", "3 条新提醒"], "USDT on Tron is running with elevated latency.": ["USDT na Tron está com latência elevada.", "Tron 上的 USDT 延迟偏高。"],
+  "Signed out (simulated)": ["Sessão encerrada (simulado)", "已退出（模拟）"],
+
+  // Transactions page
+  "See the transaction lifecycle — from initiation to confirmation and reconciliation.": ["Veja o ciclo da transação — da criação à confirmação e conciliação.", "查看交易全周期——从发起到确认与对账。"],
+  "Today": ["Hoje", "今日"], "Volume today": ["Volume hoje", "今日交易额"], "of attempts": ["das tentativas", "占尝试次数"],
+  "Avg. ticket": ["Ticket médio", "平均客单价"],
+
+  // Payments
+  "Pix charges, dynamic QR codes and recurring Pix Automático.": ["Cobranças Pix, QR codes dinâmicos e Pix Automático recorrente.", "Pix 收款、动态二维码与 Pix 自动扣款。"],
+  "Create Pix charge": ["Criar cobrança Pix", "创建 Pix 收款"], "Charges created": ["Cobranças criadas", "已创建收款"], "Conversion": ["Conversão", "转化率"],
+  "QR → paid": ["QR → pago", "扫码 → 支付"], "Pix received · 30d": ["Pix recebido · 30d", "Pix 收款 · 30天"], "Payment methods mix": ["Mix de métodos de pagamento", "支付方式构成"],
+  "New Pix charge": ["Nova cobrança Pix", "新建 Pix 收款"], "Generates a dynamic QR code with a 30-minute expiry.": ["Gera um QR code dinâmico com validade de 30 minutos.", "生成 30 分钟有效的动态二维码。"],
+  "Amount (BRL)": ["Valor (BRL)", "金额 (BRL)"], "Description": ["Descrição", "描述"], "Charge created": ["Cobrança criada", "收款已创建"],
+  "QR code copied to clipboard.": ["QR code copiado.", "二维码已复制。"], "Pix dynamic QR": ["QR dinâmico Pix", "Pix 动态二维码"], "Pix Cobrança": ["Pix Cobrança", "Pix 收款"],
+  "results": ["resultados", "条结果"], "Page": ["Página", "第"], "of": ["de", "页 / 共"], "13.7k / day": ["13,7 mil / dia", "1.37万 / 天"], "Stablecoin": ["Stablecoin", "稳定币"], "Stablecoins": ["Stablecoins", "稳定币"], "Other rails": ["Outros trilhos", "其他通道"],
+  "Payments in": ["Pagamentos recebidos", "收款"],
+
+  // Accounts
+  "Total BRL position R$ 6.381.965,32 across 5 accounts.": ["Posição total em BRL R$ 6.381.965,32 em 5 contas.", "5 个账户 BRL 总头寸 R$ 6.381.965,32。"],
+  "New sub-ledger": ["Novo subrazão", "新建子账本"], "Sub-ledger created": ["Subrazão criado", "子账本已创建"], "Available": ["Disponível", "可用"],
+  "Held": ["Retido", "冻结"], "Movements": ["Movimentações", "流水"], "Account details": ["Detalhes da conta", "账户详情"], "Account ID": ["ID da conta", "账户 ID"],
+  "Currency": ["Moeda", "币种"], "Operating — BRL": ["Operacional — BRL", "运营账户 — BRL"], "Operating — BRL · balance": ["Operacional — BRL · saldo", "运营账户 — BRL · 余额"],
+  "Settlement reserve": ["Reserva de liquidação", "结算准备金"], "Treasury — USDC": ["Tesouraria — USDC", "资金库 — USDC"], "Treasury — USDT": ["Tesouraria — USDT", "资金库 — USDT"],
+  "Split partners": ["Parceiros de split", "分账伙伴"], "Operating": ["Operacional", "运营"], "Reserve": ["Reserva", "准备金"], "Wallet": ["Carteira", "钱包"],
+  "Sub-ledger": ["Subrazão", "子账本"], "% this month": ["% este mês", "% 本月"], "vs. last week": ["vs. semana passada", "较上周"],
+
+  // Transfers
+  "Move value with clarity — payouts across Pix, TED and stablecoin rails.": ["Movimente valores com clareza — pagamentos via Pix, TED e stablecoins.", "清晰转移资金——通过 Pix、TED 与稳定币通道付款。"],
+  "New transfer": ["Nova transferência", "新建转账"], "Send transfer": ["Enviar transferência", "发起转账"], "Recipient": ["Destinatário", "收款人"],
+  "Source account": ["Conta de origem", "付款账户"], "Saved recipients": ["Destinatários salvos", "常用收款人"], "Transfer history": ["Histórico de transferências", "转账记录"],
+  "Transfer submitted": ["Transferência enviada", "转账已提交"], "Sent · 30d": ["Enviado · 30d", "已付款 · 30天"], "Scheduled": ["Agendadas", "已排期"],
+  "Avg. completion": ["Conclusão média", "平均完成时间"], "Pix key": ["Chave Pix", "Pix 密钥"], "Payout to bank account": ["Pagamento para conta bancária", "付款至银行账户"],
+  "Select": ["Selecionar", "选择"], "Phone": ["Telefone", "电话"], "E-mail": ["E-mail", "邮箱"], "Payouts": ["Pagamentos", "付款"], "faster": ["mais rápido", "更快"],
+
+  // Rails
+  "Active rails": ["Trilhos ativos", "活跃通道"], "Weighted uptime": ["Disponibilidade ponderada", "加权可用率"], "Median confirm": ["Confirmação mediana", "确认中位数"],
+  "Smart-routed": ["Roteado inteligente", "智能路由"], "via fallback": ["via contingência", "通过备用通道"], "1 degraded": ["1 degradado", "1 个降级"],
+  "Uptime": ["Disponibilidade", "可用率"], "Latency": ["Latência", "延迟"], "Provider": ["Provedor", "提供方"], "Volume": ["Volume", "交易量"],
+  "Rail mix": ["Mix de trilhos", "通道构成"], "% of routed volume": ["% do volume roteado", "% 路由交易量"], "Throughput by hour · Pix (TPS)": ["Vazão por hora · Pix (TPS)", "每小时吞吐量 · Pix (TPS)"],
+  "Routing": ["Roteamento", "路由"], "improving": ["melhorando", "改善中"], "Pix (SPI)": ["Pix (SPI)", "Pix (SPI)"], "TED (STR)": ["TED (STR)", "TED (STR)"],
+  "USDC on Base": ["USDC na Base", "Base 上的 USDC"], "USDT on Tron": ["USDT na Tron", "Tron 上的 USDT"], "Route health": ["Saúde das rotas", "路由健康"], "All rails": ["Todos os trilhos", "全部通道"],
+  "p95 latency": ["latência p95", "p95 延迟"], "p95 latency · Pix": ["latência p95 · Pix", "p95 延迟 · Pix"],
+
+  // Settlement
+  "Daily reconciliation between rail confirmations and ledger entries.": ["Conciliação diária entre confirmações dos trilhos e lançamentos do razão.", "通道确认与账本记录的每日对账。"],
+  "Run reconciliation": ["Executar conciliação", "执行对账"], "Reconciliation started": ["Conciliação iniciada", "对账已开始"], "Match rate": ["Taxa de conciliação", "匹配率"],
+  "Open exceptions": ["Exceções abertas", "未结异常"], "Settled · 30d": ["Liquidado · 30d", "已结算 · 30天"], "Today's window": ["Janela de hoje", "今日窗口"],
+  "Rail confirmations ingested": ["Confirmações dos trilhos recebidas", "已接收通道确认"], "Ledger entries posted": ["Lançamentos registrados", "已记账条目"],
+  "Matching in progress": ["Conciliação em andamento", "匹配进行中"], "Settled in ledger": ["Liquidado no razão", "账本已结算"], "Settlement history": ["Histórico de liquidação", "结算记录"],
+  "Batch": ["Lote", "批次"], "Gross": ["Bruto", "总额"], "Txs": ["Transações", "笔数"], "closes 18:00 BRT": ["fecha 18:00 BRT", "18:00 BRT 截止"],
+  "window 18:00": ["janela 18:00", "18:00 窗口"], "next window 18:00": ["próxima janela 18:00", "下个窗口 18:00"], "72% matched": ["72% conciliado", "已匹配 72%"],
+  "Pending settlement": ["Liquidação pendente", "待结算"],
+
+  // Analytics
+  "Insights": ["Insights", "洞察"], "Financial metrics, rail performance and reporting.": ["Métricas financeiras, desempenho dos trilhos e relatórios.", "财务指标、通道表现与报表。"],
+  "Report": ["Relatório", "报表"], "Report generated": ["Relatório gerado", "报表已生成"], "Net revenue": ["Receita líquida", "净收入"], "Take rate": ["Take rate", "费率"],
+  "Active merchants": ["Lojistas ativos", "活跃商户"], "Chargeback rate": ["Taxa de chargeback", "拒付率"], "Net after fees ·": ["Líquido após taxas ·", "扣费后净额 ·"],
+  "Top merchants by volume (R$ M)": ["Maiores lojistas por volume (R$ mi)", "按交易额排名商户 (R$ 百万)"], "Approval funnel": ["Funil de aprovação", "审批漏斗"],
+  "Confirmed by rail": ["Confirmada pelo trilho", "通道已确认"], "Platform latency · last 24h (ms)": ["Latência da plataforma · últimas 24h (ms)", "平台延迟 · 近24小时 (ms)"],
+  "Processed volume · 30d": ["Volume processado · 30d", "处理交易额 · 30天"], "Success rate": ["Taxa de sucesso", "成功率"], "vs. prev. period": ["vs. período anterior", "较上期"],
+  "target 99.0%": ["meta 99,0%", "目标 99.0%"], "Transaction volume": ["Volume de transações", "交易量"],
+
+  // Developers
+  "Built for engineers and operators. Keys, webhooks, logs and docs.": ["Feito para engenheiros e operadores. Chaves, webhooks, logs e documentação.", "为工程师与运营人员打造。密钥、Webhook、日志与文档。"],
+  "Integrate once. Extend everywhere — unified primitives over every route.": ["Integre uma vez. Expanda em todo lugar — primitivas unificadas para todas as rotas.", "一次集成，处处扩展——覆盖所有路由的统一原语。"],
+  "Docs": ["Documentação", "文档"], "Create key": ["Criar chave", "创建密钥"], "API key created": ["Chave de API criada", "API 密钥已创建"],
+  "Key copied": ["Chave copiada", "密钥已复制"], "Snippet copied": ["Código copiado", "代码已复制"], "Opening docs (simulated)": ["Abrindo documentação (simulado)", "正在打开文档（模拟）"],
+  "Test event sent": ["Evento de teste enviado", "测试事件已发送"], "Send test event": ["Enviar evento de teste", "发送测试事件"], "Requests · 24h": ["Requisições · 24h", "请求数 · 24小时"],
+  "Error rate": ["Taxa de erro", "错误率"], "Webhook delivery": ["Entrega de webhooks", "Webhook 送达率"], "Secret keys": ["Chaves secretas", "密钥"],
+  "Last used": ["Último uso", "最近使用"], "Webhooks": ["Webhooks", "Webhooks"], "Endpoints": ["Endpoints", "端点"], "Request log": ["Log de requisições", "请求日志"],
+  "Logs": ["Logs", "日志"], "Quickstart · create a Pix payment": ["Início rápido · criar um pagamento Pix", "快速开始 · 创建 Pix 支付"], "Response:": ["Resposta:", "响应："],
+  "Production — core": ["Produção — core", "生产 — 核心"], "Production — webhooks": ["Produção — webhooks", "生产 — Webhooks"], "Sandbox": ["Sandbox", "沙盒"],
+  "events": ["eventos", "事件"], "% delivered": ["% entregues", "% 已送达"], "12 sec ago": ["há 12 s", "12 秒前"], "2 min ago": ["há 2 min", "2 分钟前"],
+  "1 h ago": ["há 1 h", "1 小时前"], "next in 2h": ["próximo em 2h", "2小时后下次"], "ms": ["ms", "毫秒"],
+  "· payment.id, qr_code, expires_at": ["· payment.id, qr_code, expires_at", "· payment.id, qr_code, expires_at"],
+
+  // Settings
+  "Workspace": ["Espaço de trabalho", "工作区"], "Account, team, security and preferences.": ["Conta, equipe, segurança e preferências.", "账户、团队、安全与偏好。"],
+  "Security": ["Segurança", "安全"], "Team": ["Equipe", "团队"], "Preferences": ["Preferências", "偏好"], "Organization": ["Organização", "组织"],
+  "Legal name": ["Razão social", "公司法定名称"], "Support email": ["E-mail de suporte", "客服邮箱"], "Settlement account": ["Conta de liquidação", "结算账户"],
+  "Save changes": ["Salvar alterações", "保存更改"], "Two-factor authentication": ["Autenticação de dois fatores", "双重验证"],
+  "Require TOTP for every dashboard sign-in.": ["Exigir TOTP em todo login no painel.", "每次登录控制台都需 TOTP。"], "IP allowlist for API": ["Lista de IPs permitidos na API", "API IP 白名单"],
+  "Only accept live-key requests from 4 registered ranges.": ["Aceitar chaves de produção apenas de 4 faixas cadastradas.", "仅接受来自 4 个已登记网段的生产密钥请求。"],
+  "Dual approval for transfers": ["Dupla aprovação para transferências", "转账双人审批"], "Transfers above R$ 50.000 need a second approver.": ["Transferências acima de R$ 50.000 exigem um segundo aprovador.", "超过 R$ 50.000 的转账需第二人审批。"],
+  "Session timeout": ["Tempo limite de sessão", "会话超时"], "Sign out after 30 minutes of inactivity.": ["Sair após 30 minutos de inatividade.", "闲置 30 分钟后自动退出。"],
+  "Members": ["Membros", "成员"], "Invite": ["Convidar", "邀请"], "Invite sent": ["Convite enviado", "邀请已发送"], "Admin": ["Admin", "管理员"], "Operator": ["Operador", "操作员"],
+  "Developer": ["Desenvolvedor", "开发者"], "Finance": ["Financeiro", "财务"], "Rail incidents": ["Incidentes nos trilhos", "通道故障"],
+  "Email and Slack when a rail is degraded.": ["E-mail e Slack quando um trilho degradar.", "通道降级时发送邮件和 Slack 通知。"], "Settlement exceptions": ["Exceções de liquidação", "结算异常"],
+  "Alert finance when reconciliation finds mismatches.": ["Alertar o financeiro quando a conciliação encontrar divergências.", "对账发现差异时提醒财务。"], "Weekly report": ["Relatório semanal", "周报"],
+  "Monday summary of volume and revenue.": ["Resumo de volume e receita às segundas.", "每周一发送交易额与收入摘要。"],
+  "Build, route and reconcile financial flows through one programmable core.": ["Crie, roteie e concilie fluxos financeiros em um núcleo programável.", "通过一个可编程核心构建、路由并对账资金流。"],
+};
+
+export const months: Record<string, [string, string]> = {
+  Jan: ["jan", "1"], Feb: ["fev", "2"], Mar: ["mar", "3"], Apr: ["abr", "4"], May: ["mai", "5"], Jun: ["jun", "6"],
+  Jul: ["jul", "7"], Aug: ["ago", "8"], Sep: ["set", "9"], Oct: ["out", "10"], Nov: ["nov", "11"], Dec: ["dez", "12"],
+};
