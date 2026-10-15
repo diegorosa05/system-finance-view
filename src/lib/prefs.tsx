@@ -32,10 +32,10 @@ function translateCore(s: string, lang: Lang): string | null {
   if ((r = s.match(/^(\d[\d,]*) results$/))) return lang === "pt" ? `${r[1]} resultados` : `${r[1]} 条结果`;
   if ((r = s.match(/^(\d[\d,]*) rows · CSV will be emailed\.$/))) return lang === "pt" ? `${r[1]} linhas · o CSV será enviado por e-mail.` : `${r[1]} 行 · CSV 将通过邮件发送。`;
   if ((r = s.match(/^Routing to (.+) via Pix\.$/))) return lang === "pt" ? `Enviando para ${r[1]} via Pix.` : `正在通过 Pix 转给 ${r[1]}。`;
-  if ((r = s.match(/^Switched to (live|sandbox) environment$/))) return lang === "pt" ? `Ambiente alterado para ${dict[r[1]][0]}` : `已切换到${dict[r[1]][1]}环境`;
+  if ((r = s.match(/^Switched to (live|sandbox) environment$/))) return lang === "pt" ? `Ambiente alterado para ${dict[r[1]!]![0]}` : `已切换到${dict[r[1]!]![1]}环境`;
   if ((r = s.match(/^(.+) rail selected$/))) return lang === "pt" ? `Trilho ${r[1]} selecionado` : `已选择 ${r[1]} 通道`;
   if ((r = s.match(/^Window Oct 15 · (.+) entries$/))) return lang === "pt" ? `Janela 15 out · ${r[1]} lançamentos` : `10月15日窗口 · ${r[1]} 条记录`;
-  if ((r = s.match(/^(.+) — Odyssey Core$/))) { const t = dict[r[1]]; return t ? `${t[i]} — Odyssey Core` : null; }
+  if ((r = s.match(/^(.+) — Odyssey Core$/))) { const t = dict[r[1]!]; return t ? `${t[i]} — Odyssey Core` : null; }
   if ((r = s.match(/^(\d[\d,.]*) \/ day$/))) return lang === "pt" ? `${r[1]} / dia` : `${r[1]} / 天`;
   return null;
 }
@@ -95,13 +95,13 @@ export function PrefsProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const h = document.documentElement;
-    setLangS((h.dataset.lang as Lang) || "en");
+    setLangS((h.dataset["lang"] as Lang) || "en");
     setThemeS(h.classList.contains("dark") ? "dark" : "light");
   }, []);
 
   useEffect(() => {
     const h = document.documentElement;
-    h.dataset.lang = lang;
+    h.dataset["lang"] = lang;
     h.lang = lang === "pt" ? "pt-BR" : lang === "zh" ? "zh-CN" : "en";
     walk(document.documentElement, lang);
     h.classList.remove("i18n-pending");
@@ -126,4 +126,4 @@ export function PrefsProvider({ children }: { children: ReactNode }) {
 }
 
 // Runs before paint: applies saved theme (default light) and language (saved, else browser).
-export const prefsBootScript = `(function(){try{var h=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark')h.classList.add('dark');var l=localStorage.getItem('lang');if(!l){var n=(navigator.language||'en').toLowerCase();l=n.indexOf('pt')===0?'pt':n.indexOf('zh')===0?'zh':'en';}h.dataset.lang=l;if(l!=='en')h.classList.add('i18n-pending');}catch(e){}})();`;
+export const prefsBootScript = `(function(){try{var h=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark')h.classList.add('dark');var l=localStorage.getItem('lang');if(!l){var n=(navigator.language||'en').toLowerCase();l=n.indexOf('pt')===0?'pt':n.indexOf('zh')===0?'zh':'en';}h.dataset["lang"]=l;if(l!=='en')h.classList.add('i18n-pending');}catch(e){}})();`;
