@@ -35,6 +35,11 @@ export const dict: Record<string, [string, string]> = {
   "Pix charge created": ["Cobrança Pix criada", "Pix 收款已创建"], "QR code ready to share.": ["QR code pronto para compartilhar.", "二维码已可分享。"],
   "Recent transactions": ["Transações recentes", "最近交易"], "View all": ["Ver todas", "查看全部"],
 
+  "Welcome back to Odyssey 👋": ["Bem-vindo de volta à Odyssey 👋", "欢迎回到 Odyssey 👋"], "Details": ["Detalhes", "详情"],
+  "78% of your total balance is ready to withdraw.": ["78% do seu saldo total está pronto para saque.", "您总余额的 78% 可提现。"],
+  "Held R$ 362.400": ["Retido R$ 362.400", "冻结 R$ 362.400"], "this week": ["esta semana", "本周"],
+  "Channels": ["Canais", "渠道"], "Percent": ["Percentual", "占比"], "Search…": ["Buscar…", "搜索…"], "Payment method": ["Método de pagamento", "支付方式"],
+  "Display the recent transactions in the table below.": ["Veja as transações recentes na tabela abaixo.", "下表显示最近的交易。"], "More": ["Mais", "更多"],
   // Common / table
   "Transaction": ["Transação", "交易"], "Counterparty": ["Contraparte", "交易对手"], "Rail": ["Trilho", "通道"], "Status": ["Status", "状态"],
   "Date": ["Data", "日期"], "Amount": ["Valor", "金额"], "Export": ["Exportar", "导出"], "all": ["todas", "全部"],
