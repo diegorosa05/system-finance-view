@@ -48,7 +48,7 @@ export function TxTable({ data, pageSize = 10, title = "Transactions", compact }
       <div className="overflow-x-auto">
         <table className="w-full min-w-[760px] text-sm">
           <thead>
-            <tr className="label-caps text-left [&>th]:px-4 [&>th]:py-3 [&>th]:font-medium">
+            <tr className="bg-muted/60 text-left text-xs text-muted-foreground [&>th]:px-4 [&>th]:py-3 [&>th]:font-normal">
               <th>Transaction</th><th>Counterparty</th><th>Rail</th><th>Status</th><th>Date</th><th className="text-right">Amount</th>
             </tr>
           </thead>

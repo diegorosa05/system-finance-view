@@ -168,10 +168,9 @@
 }
 
 @utility panel {
-  background: linear-gradient(180deg, var(--surface) 0%, color-mix(in oklab, var(--surface) 85%, var(--ink)) 100%);
+  background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-panel);
+  border-radius: 1rem;
 }
 
 @utility grid-bg {
@@ -181,13 +180,11 @@
   background-size: 32px 32px;
 }
 
-@utility glow-mint { box-shadow: var(--glow-mint); }
+@utility glow-mint { box-shadow: 0 0 0 1.5px var(--orbit); }
 
 @utility label-caps {
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   color: var(--muted-foreground);
 }
 
