@@ -70,7 +70,7 @@ export const dict: Record<string, [string, string]> = {
   "New Pix charge": ["Nova cobrança Pix", "新建 Pix 收款"], "Generates a dynamic QR code with a 30-minute expiry.": ["Gera um QR code dinâmico com validade de 30 minutos.", "生成 30 分钟有效的动态二维码。"],
   "Amount (BRL)": ["Valor (BRL)", "金额 (BRL)"], "Description": ["Descrição", "描述"], "Charge created": ["Cobrança criada", "收款已创建"],
   "QR code copied to clipboard.": ["QR code copiado.", "二维码已复制。"], "Pix dynamic QR": ["QR dinâmico Pix", "Pix 动态二维码"], "Pix Cobrança": ["Pix Cobrança", "Pix 收款"],
-  "Boleto": ["Boleto", "Boleto 票据"], "Stablecoin": ["Stablecoin", "稳定币"], "Stablecoins": ["Stablecoins", "稳定币"], "Other rails": ["Outros trilhos", "其他通道"],
+  "results": ["resultados", "条结果"], "Page": ["Página", "第"], "of": ["de", "页 / 共"], "13.7k / day": ["13,7 mil / dia", "1.37万 / 天"], "Stablecoin": ["Stablecoin", "稳定币"], "Stablecoins": ["Stablecoins", "稳定币"], "Other rails": ["Outros trilhos", "其他通道"],
   "Payments in": ["Pagamentos recebidos", "收款"],
 
   // Accounts

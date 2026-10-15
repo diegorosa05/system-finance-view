@@ -20,7 +20,7 @@ function translateCore(s: string, lang: Lang): string | null {
   // Dates: "Oct 15", "Oct 15, 11:46", "Aug 02, 2026"
   const d = s.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{1,2})(?:, (\d{1,2}:\d{2}|\d{4}))?$/);
   if (d) {
-    const mo = months[d[1]][i];
+    const mo = months[d[1]!]![i];
     const day = String(Number(d[2]));
     const tail = d[3];
     if (lang === "pt") return `${day} ${mo}${tail ? (tail.includes(":") ? ", " : " ") + tail : ""}`;
