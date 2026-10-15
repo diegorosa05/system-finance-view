@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Banknote, Bell, History, Search, Wallet, ArrowDownLeft, ArrowUpRight, MoreVertical } from "lucide-react";
+import { Banknote, History, Search, Wallet, ArrowDownLeft, ArrowUpRight, MoreVertical } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { RailTag, StatusBadge, axis, chartTooltip } from "@/components/kit";
 import { cn } from "@/lib/utils";
-import { brl, compact, fmtDate, transactions, volumeSeries } from "@/lib/mock";
+import { brl, fmtDate, transactions, volumeSeries } from "@/lib/mock";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -199,7 +199,6 @@ function Overview() {
           {recent.length === 0 && <div className="py-10 text-center text-sm text-muted-foreground">No transactions match</div>}
         </div>
       </section>
-      <span className="hidden">{compact(0)}<Bell /></span>
     </>
   );
 }

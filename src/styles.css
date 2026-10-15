@@ -62,7 +62,7 @@
 :root {
   --radius: 0.75rem;
   --ink: oklch(0.985 0 0);
-  --background: oklch(0.985 0 0);
+  --background: oklch(0.99 0 0);
   --foreground: oklch(0.16 0 0);
   --surface: oklch(1 0 0);
   --surface-2: oklch(0.955 0 0);
@@ -71,7 +71,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.16 0 0);
   --mint: oklch(0.56 0.16 145);
-  --orbit: oklch(0.5 0.2 275);
+  --orbit: oklch(0.55 0.22 290);
   --amber: oklch(0.64 0.15 60);
   --cloud: oklch(0.3 0 0);
   --primary: oklch(0.16 0 0);
