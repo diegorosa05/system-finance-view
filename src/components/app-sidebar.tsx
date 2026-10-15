@@ -1,5 +1,4 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import logoDark from "@/assets/brand/logo-dark.svg";
 import {
   LayoutGrid,
   ArrowLeftRight,
@@ -59,7 +58,7 @@ export function AppSidebar() {
   return (
     <aside className="hidden md:flex w-64 shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground">
       <div className="flex items-center px-6 h-16 border-b">
-        <img src={logoDark} alt="Odyssey Core" className="h-7 w-auto" />
+        <span className="text-lg font-bold tracking-tight">Odyssey Core</span>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-5">

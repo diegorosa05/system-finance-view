@@ -1,5 +1,6 @@
 import { Building2, User2, Calendar } from "lucide-react";
 import { user } from "@/lib/mock-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface TopBarProps {
   title: string;
@@ -32,6 +33,7 @@ export function TopBar({ title, subtitle, showDateTabs }: TopBarProps) {
           <Building2 className="h-4 w-4" />
           <span className="max-w-[140px] truncate">{user.account}</span>
         </button>
+        <ThemeToggle />
         <button className="flex h-9 w-9 items-center justify-center rounded-md border bg-card">
           <User2 className="h-4 w-4" />
         </button>
