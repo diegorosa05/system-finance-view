@@ -175,12 +175,12 @@ export function AppShell({ children }: { children: ReactNode }) {
                   <span className="grid size-7 place-items-center rounded-md bg-orbit/20 text-xs font-semibold text-orbit">DR</span>
                   <span className="hidden text-left md:block">
                     <span className="block text-xs font-medium leading-tight">Diego Rosa</span>
-                    <span className="block text-[11px] leading-tight text-muted-foreground">Cashyin · Admin</span>
+                    <span className="block text-[11px] leading-tight text-muted-foreground">Odyssey · Admin</span>
                   </span>
                   <ChevronDown className="size-3.5 text-muted-foreground" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-52">
-                  <DropdownMenuLabel>diego@cashyin.com</DropdownMenuLabel>
+                  <DropdownMenuLabel>diego@odyssey.com</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild><Link to="/settings"><User className="mr-2 size-4" />Profile</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild><Link to="/developers"><Code2 className="mr-2 size-4" />API keys</Link></DropdownMenuItem>
