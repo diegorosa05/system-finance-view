@@ -15,13 +15,12 @@ export function Logo({ collapsed }: { collapsed?: boolean }) {
   );
 }
 
-export function PageHeader({ eyebrow, title, desc, actions }: { eyebrow?: string; title: string; desc?: string; actions?: ReactNode }) {
+export function PageHeader({ title, desc, actions }: { eyebrow?: string; title: string; desc?: string; actions?: ReactNode }) {
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between rise">
+    <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
       <div className="min-w-0">
-        {eyebrow && <div className="label-caps mb-2">{eyebrow}</div>}
-        <h1 className="text-2xl font-semibold md:text-[28px]">{title}</h1>
-        {desc && <p className="mt-1.5 max-w-xl text-sm text-muted-foreground">{desc}</p>}
+        <h1 className="font-sans text-xl font-medium tracking-tight">{title}</h1>
+        {desc && <p className="mt-0.5 max-w-xl text-sm text-muted-foreground">{desc}</p>}
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
     </div>
@@ -30,34 +29,30 @@ export function PageHeader({ eyebrow, title, desc, actions }: { eyebrow?: string
 
 export function Panel({ title, action, children, className, bodyClass }: { title?: ReactNode; action?: ReactNode; children: ReactNode; className?: string; bodyClass?: string }) {
   return (
-    <section className={cn("panel rise", className)}>
+    <section className={cn("rounded-2xl border border-border bg-card p-5", className)}>
       {(title || action) && (
-        <header className="flex items-center justify-between gap-3 border-b border-border px-5 py-3.5">
-          <h3 className="font-sans text-sm font-medium tracking-normal">{title}</h3>
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <h3 className="font-sans text-[15px] font-medium tracking-normal">{title}</h3>
           {action}
-        </header>
+        </div>
       )}
-      <div className={cn("p-5", bodyClass)}>{children}</div>
+      <div className={bodyClass}>{children}</div>
     </section>
   );
 }
 
-export function Stat({ label, value, delta, hint, spark }: { label: string; value: string; delta?: number; hint?: string; spark?: number[] }) {
+export function Stat({ label, value, delta, hint }: { label: string; value: string; delta?: number; hint?: string; spark?: number[] }) {
   const up = (delta ?? 0) >= 0;
   return (
-    <div className="panel rise group relative overflow-hidden p-5 transition-colors hover:border-orbit/30">
-      <div className="label-caps">{label}</div>
-      <div className="mt-3 font-display text-[26px] font-semibold tracking-tight tabular-nums">{value}</div>
-      <div className="mt-2 flex items-center gap-2 text-xs">
-        {delta !== undefined && (
-          <span className={cn("inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 font-medium", up ? "bg-mint/10 text-mint" : "bg-amber/10 text-amber")}>
-            {up ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
-            {Math.abs(delta).toFixed(1)}%
-          </span>
-        )}
-        {hint && <span className="text-muted-foreground">{hint}</span>}
+    <div className="rounded-2xl border border-border bg-card p-1">
+      <div className="h-full rounded-xl bg-muted/60 p-5">
+        <div className="text-sm text-muted-foreground">{label}</div>
+        <div className="mt-2 flex flex-wrap items-baseline gap-2">
+          <span className="text-[26px] font-medium tracking-tight tabular-nums">{value}</span>
+          {delta !== undefined && <span className={cn("text-xs font-medium", up ? "text-mint" : "text-destructive")}>{up ? "+" : ""}{delta}%</span>}
+          {hint && <span className="text-xs text-muted-foreground">{hint}</span>}
+        </div>
       </div>
-      {spark && <Spark data={spark} up={up} />}
     </div>
   );
 }
