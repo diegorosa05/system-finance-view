@@ -29,7 +29,7 @@ export function PageHeader({ title, desc, actions }: { eyebrow?: string; title: 
 
 export function Panel({ title, action, children, className, bodyClass }: { title?: ReactNode; action?: ReactNode; children: ReactNode; className?: string; bodyClass?: string }) {
   return (
-    <section className={cn("rounded-[20px] border border-border bg-card p-5 shadow-[var(--shadow-panel)]", className)}>
+    <section className={cn("rounded-2xl border border-border bg-card p-5", className)}>
       {(title || action) && (
         <div className="mb-4 flex items-center justify-between gap-3">
           <h3 className="font-sans text-[15px] font-medium tracking-normal">{title}</h3>
@@ -86,7 +86,7 @@ const statusMap: Record<string, string> = {
 
 export function StatusBadge({ status }: { status: string }) {
   return (
-    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 font-mono text-[10.5px] font-medium uppercase tracking-[0.08em] ring-1 ring-inset", statusMap[status] ?? statusMap["pending"])}>
+    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium capitalize ring-1 ring-inset", statusMap[status] ?? statusMap["pending"])}>
       <span className={cn("size-1.5 rounded-full bg-current", status === "processing" && "pulse-dot")} />
       {status}
     </span>
